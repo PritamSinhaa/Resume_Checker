@@ -1,15 +1,17 @@
-const express = require("express")
+const express = require("express");
+const cookieParser = require("cookie-parser");
 
-const authRouter = require("./routes/auth.route")
+const authRouter = require("./routes/auth.route");
 
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
-app.use("/api/auth", authRouter)
+app.use("/api/auth", authRouter);
 
 app.get("/", (req, res) => {
-    res.send("Backend is running...");
+  res.send("Backend is running...");
 });
 
 module.exports = app;
